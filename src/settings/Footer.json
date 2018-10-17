@@ -1,0 +1,12 @@
+{
+  "props": {
+    "Footer#default": {
+      "paragraphes": [
+        { "text": "Double-click to edit a todo" },
+        { "text": "Created by ", "href": "http://twitter.com/oscargodson", "link": "Oscar Godson" },
+        { "text": "Refactored by ", "href": "https://github.com/cburgmer", "link": "Christoph Burgmer" },
+        { "text": "Part of ", "href": "http://todomvc.com", "link": "TodoMVC" }
+      ]
+    }
+  }
+}

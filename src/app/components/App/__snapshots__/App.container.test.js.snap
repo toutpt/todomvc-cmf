@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App container should render 1`] = `
+<div>
+  <section
+    className="todoapp"
+  >
+    <Inject
+      component="Header"
+    />
+    <Inject
+      component="TodoList"
+    />
+    <Inject
+      component="TodoFooter"
+    />
+  </section>
+  <Inject
+    component="Footer"
+  />
+</div>
+`;

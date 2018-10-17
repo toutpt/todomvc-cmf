@@ -1,0 +1,49 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/index.js",
+  "scripts": {
+    "start": "talend-scripts start",
+    "prepublish": "talend-scripts build",
+    "lint:es": "talend-scripts lint:es",
+    "test": "talend-scripts test",
+    "test:watch": "talend-scripts test --watch",
+    "test:cov": "talend-scripts test --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "react",
+    "talend"
+  ],
+  "author": "Talend Frontend <frontend@talend.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@talend/scripts": "0.3.1"
+  },
+  "dependencies": {
+    "@talend/react-cmf": "1.1.0",
+    "@talend/react-components": "^1.1.0",
+    "classnames": "^2.2.5",
+    "enzyme": "^3.1.0",
+    "immutable": "^3.8.1",
+    "invariant": "^2.2.2",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^3.2.0",
+    "react-router-redux": "^4.0.8",
+    "react-transition-group": "^2.3.1",
+    "redux": "^3.7.2",
+    "redux-batched-actions": "^0.2.0",
+    "redux-saga": "^0.15.4",
+    "redux-thunk": "^2.2.0",
+    "todomvc-app-css": "^2.1.2",
+    "todomvc-common": "^1.0.5"
+  }
+}
