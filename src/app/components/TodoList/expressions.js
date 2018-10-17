@@ -16,11 +16,9 @@ function hasTodos(...args) {
 const cache = {};
 function getAll({ context }) {
 	const state = TodoList.getState(context.store.getState());
-	console.log('getAll', state);
 	if (!state) {
 		return [];
 	}
-	debugger;
 	if (cache.key !== state) {
 		cache.key = state;
 		cache.value = state.get('todos').toJS();
