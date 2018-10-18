@@ -1,0 +1,9 @@
+{
+  "props": {
+    "TodoList#default": {
+      "onToggleAllActionCreator": "service#todos:toggleAll",
+      "initialState": { "todos": [] },
+      "spreadCMFState": true
+    }
+  }
+}

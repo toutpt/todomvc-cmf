@@ -1,4 +1,4 @@
-import { ACTION_TYPE_ADD_ITEM, ACTION_TYPE_DELETE, ACTION_TYPE_COMPLETED, ACTION_TYPE_FILTER, ACTION_TYPE_CLEAR } from './constants';
+import { ACTION_TYPE_ADD_ITEM, ACTION_TYPE_DELETE, ACTION_TYPE_COMPLETED, ACTION_TYPE_FILTER, ACTION_TYPE_CLEAR, ACTION_TYPE_TOGGLE_ALL } from './constants';
 
 function add(event, data) {
 	return {
@@ -34,10 +34,16 @@ function clear() {
 	};
 }
 
+function toggleAll() {
+	return {
+		type: ACTION_TYPE_TOGGLE_ALL,
+	};
+}
 export default {
-	'TodoList#add': add,
-	'TodoList#rm': rm,
-	'TodoList#completed': completed,
-	'TodoList#filter': filter,
-	'TodoList#clear': clear,
+	'service#todos:add': add,
+	'service#todos:rm': rm,
+	'service#todos:completed': completed,
+	'service#todos:filter': filter,
+	'service#todos:clear': clear,
+	'service#todos:toggleAll': toggleAll,
 };

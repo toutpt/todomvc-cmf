@@ -1,7 +1,8 @@
 import { List } from 'immutable';
-import TodoList from './TodoList.component';
+import cmf from '@talend/react-cmf';
 
 function count({ context }) {
+	const TodoList = cmf.component.get('TodoList');
 	const state = TodoList.getState(context.store.getState());
 	if (state) {
 		return state.get('todos', new List()).size;
@@ -15,6 +16,7 @@ function hasTodos(...args) {
 
 const cache = {};
 function getAll({ context }) {
+	const TodoList = cmf.component.get('TodoList');
 	const state = TodoList.getState(context.store.getState());
 	if (!state) {
 		return [];
@@ -27,7 +29,7 @@ function getAll({ context }) {
 }
 
 export default {
-	'TodoList#count': count,
-	'TodoList#has': hasTodos,
-	'TodoList#getAll': getAll,
+	'service#todos:count': count,
+	'service#todos:has': hasTodos,
+	'service#todos:getAll': getAll,
 };

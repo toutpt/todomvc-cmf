@@ -6,15 +6,16 @@ function TodoItem(props) {
 	return (
 		<div className="view">
 			<input
+				id="todo-toggle"
 				className="toggle"
 				type="checkbox"
-				onChange={() => props.dispatchActionCreator('TodoList#completed', event, props.item)}
+				onChange={() => props.dispatchActionCreator('service#todos:completed', event, props.item)}
 				checked={props.item.completed}
 			/>
-			<label>{props.item.text}</label>
+			<label htmlFor="todo-toggle">{props.item.text}</label>
 			<button
 				className="destroy"
-				onClick={() => props.dispatchActionCreator('TodoList#rm', event, props.item)}
+				onClick={() => props.dispatchActionCreator('service#todos:rm', event, props.item)}
 			/>
 		</div>
 	);

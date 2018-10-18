@@ -1,0 +1,8 @@
+{
+  "props": {
+    "TodoFooter#default": {
+      "countExpression": "service#todos:count",
+      "renderIfExpression": "service#todos:has"
+    }
+  }
+}

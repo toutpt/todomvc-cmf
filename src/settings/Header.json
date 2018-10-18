@@ -1,0 +1,7 @@
+{
+  "props": {
+    "Header#default": {
+      "onEnterActionCreator": "service#todos:add"
+    }
+  }
+}

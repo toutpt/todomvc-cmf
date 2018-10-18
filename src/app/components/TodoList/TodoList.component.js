@@ -1,11 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Inject, cmfConnect } from '@talend/react-cmf';
-import { Map, List } from 'immutable';
-
-const DEFAULT_STATE = new Map({
-	todos: new List(),
-});
 
 function filterAll(item) {
 	return item;
@@ -29,27 +24,43 @@ function filter(action) {
 	return filterAll;
 }
 
-function TodoList(props) {
-	return (
-		<section className="main">
-			<input
-				id="toggle-all"
-				className="toggle-all"
-				type="checkbox"
-				onChange={() => props.dispatch({
-					type: TodoList.ACTION_TYPE_TOGGLE_ALL,
-				})}
-			/>
-			<label htmlFor="toggle-all">Mark all as complete</label>
-			<ul className="todo-list">
-				{props.todos.filter(filter(props.filter)).map(todo => (
-					<li className={todo.completed ? 'completed' : ''} key={todo.text}>
-						<Inject component="TodoItem" item={todo} />
-					</li>
-				))}
-			</ul>
-		</section>
-	);
+class TodoList extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+		this.onChange = this.onChange.bind(this);
+	}
+
+	onChange(event) {
+		this.setState({ toggleAll: event.target.value });
+		if (this.props.onToggleAll) {
+			event.persist();
+			debugger;
+			this.props.onToggleAll(event, { toggleAll: event.target.value });
+		}
+	}
+
+	render() {
+		return (
+			<section className="main">
+				<input
+					id="toggle-all"
+					className="toggle-all"
+					type="checkbox"
+					onChange={this.onChange}
+					value={this.state.toggleAll}
+				/>
+				<label htmlFor="toggle-all">Mark all as complete</label>
+				<ul className="todo-list">
+					{this.props.todos.filter(filter(this.props.filter)).map(todo => (
+						<li className={todo.completed ? 'completed' : ''} key={todo.text}>
+							<Inject component="TodoItem" item={todo} />
+						</li>
+					))}
+				</ul>
+			</section>
+		);
+	}
 }
 TodoList.displayName = 'TodoList';
 TodoList.propTypes = {
@@ -57,15 +68,10 @@ TodoList.propTypes = {
 		id: PropTypes.string.isRequired,
 		text: PropTypes.string.isRequired,
 	})),
-	...cmfConnect,
+	...cmfConnect.propTypes,
 };
 TodoList.defaultProps = {
 	todos: [],
 };
 
-export default cmfConnect({
-	defaultState: DEFAULT_STATE,
-	defaultProps: {
-		spreadCMFState: true,
-	},
-})(TodoList);
+export default cmfConnect({})(TodoList);

@@ -8,6 +8,8 @@ import 'todomvc-common/base.css';
 import 'todomvc-common/base.js';
 import 'todomvc-app-css/index.css';
 import components from './components';
+import todos from './todos';
+import saga from './saga';
 
 /**
  * Initialize CMF
@@ -20,5 +22,7 @@ import components from './components';
  */
 cmf.bootstrap({
 	components,
+	...todos,
+	saga,
 	settingsURL: '/settings.json',
 });

@@ -6,11 +6,19 @@ function TodoFooter(props) {
 	const onClick = event => {
 		event.preventDefault();
 		event.stopPropagation();
+		event.persist();
 		if (event.target.tagName === 'BUTTON') {
-			props.dispatchActionCreator('TodoList#clear', event);
+			props.dispatch({
+				type: TodoFooter.ACTION_TYPE_CLEAR_COMPLETED,
+				event,
+			});
 		} else {
 			const action = event.target.getAttribute('href').split('/').pop();
-			props.dispatchActionCreator('TodoList#filter', event, { action });
+			props.dispatch({
+				type: TodoFooter.ACTION_TYPE_FILTER,
+				event,
+				action,
+			});
 		}
 	};
 	return (
@@ -44,11 +52,5 @@ TodoFooter.propTypes = {
 TodoFooter.defaultProps = {
 	count: 0,
 };
-
-export default cmfConnect({
-	defaultProps: {
-		saga: 'TodoList#main',
-		countExpression: 'TodoList#count',
-		renderIfExpression: 'TodoList#has',
-	},
-})(TodoFooter);
+TodoFooter.ACTION_TYPE_FILTER = 'TodoFooter_Filter';
+export default cmfConnect({})(TodoFooter);
