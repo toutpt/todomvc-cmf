@@ -32,11 +32,10 @@ class TodoList extends React.Component {
 	}
 
 	onChange(event) {
-		this.setState({ toggleAll: event.target.value });
+		this.setState({ toggleAll: event.target.checked });
 		if (this.props.onToggleAll) {
 			event.persist();
-			debugger;
-			this.props.onToggleAll(event, { toggleAll: event.target.value });
+			this.props.onToggleAll(event, { toggleAll: event.target.checked });
 		}
 	}
 

@@ -15,6 +15,10 @@ function* onFilter({ event, action }) {
 	yield cmf.sagas.putActionCreator('service#todos:filter', event, { action });
 }
 
+function* onClearCompleted() {
+	yield cmf.sagas.putActionCreator('service#todos:clear');
+}
+
 export default function* main() {
 	yield fork(todos.saga); // should handled by service
 	// const Header = cmf.component.get('Header');
@@ -23,4 +27,5 @@ export default function* main() {
 	// yield takeEvery(TodoList.ACTION_TYPE_TOGGLE_ALL, onToggleAll);
 	// yield takeEvery(Header.ACTION_TYPE_ENTER, onHeaderEnter);
 	yield takeEvery(TodoFooter.ACTION_TYPE_FILTER, onFilter);
+	yield takeEvery(TodoFooter.ACTION_TYPE_CLEAR_COMPLETED, onClearCompleted);
 }

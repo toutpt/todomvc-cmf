@@ -7,7 +7,7 @@ class Header extends React.Component {
 		super(props);
 		this.onChange = this.onChange.bind(this);
 		this.onEnter = this.onEnter.bind(this);
-		this.state = {};
+		this.state = { text: '' };
 	}
 
 	onChange(event) {
@@ -34,6 +34,7 @@ class Header extends React.Component {
 					onChange={this.onChange}
 					onKeyDown={this.onEnter}
 					autoFocus
+					type="text"
 				/>
 			</header>
 		);

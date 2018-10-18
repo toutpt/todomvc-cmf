@@ -34,9 +34,11 @@ function clear() {
 	};
 }
 
-function toggleAll() {
+function toggleAll(event, data) {
 	return {
 		type: ACTION_TYPE_TOGGLE_ALL,
+		event,
+		...data,
 	};
 }
 export default {
