@@ -37,10 +37,10 @@ function clear() {
 function toggleAll(event, data) {
 	return {
 		type: ACTION_TYPE_TOGGLE_ALL,
-		event,
 		...data,
 	};
 }
+
 export default {
 	'service#todos:add': add,
 	'service#todos:rm': rm,
