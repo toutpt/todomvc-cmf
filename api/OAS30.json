@@ -292,5 +292,17 @@
         "description" : "All GET methods are public, meaning that *you can read all the data*. Write operations require authentication and therefore are forbidden to the general public."
       }
     }
+  },
+  "x-talend" : {
+    "sections" : {
+      "This is hell !" : { }
+    },
+    "texts" : {
+      "bb8dbb52-3fb2-4e79-9b0f-9d8d3c55995c" : {
+        "title" : "test of text",
+        "content" : "Dam this is markdown ?\n\n# title\n",
+        "section" : "This is hell !"
+      }
+    }
   }
 }
