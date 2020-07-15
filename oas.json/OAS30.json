@@ -234,15 +234,7 @@
       } ]
     },
     "/foo/bar" : {
-      "summary" : "I am a new endpoint",
-      "get" : {
-        "summary" : "GET me",
-        "responses" : {
-          "200" : {
-            "description" : "Status 200"
-          }
-        }
-      }
+      "summary" : "I am a new endpoint"
     }
   },
   "components" : {
